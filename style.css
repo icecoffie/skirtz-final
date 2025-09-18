@@ -1,0 +1,78 @@
+    body {
+      background: #0d0d0d;
+      color: #f5f5f5;
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+    .spotlight {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255,255,255,0.08), transparent 40%);
+      transition: background 0.1s;
+    }
+    .glow-line {
+      stroke: rgba(255, 255, 255, 0.2);
+      stroke-width: 1.5;
+      stroke-dasharray: 5 5;
+      animation: dash 4s linear infinite;
+    }
+    @keyframes dash { to { stroke-dashoffset: -100; } }
+    .node {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: #1a1a1a;
+      display: flex; align-items: center; justify-content: center;
+      border: 2px solid rgba(255,255,255,0.2);
+      box-shadow: 0 0 15px rgba(255,255,255,0.08);
+      color: #fff; font-size: 22px;
+    }
+    .glass {
+      background: rgba(255,255,255,0.05);
+      border: 2px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 0.75rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    }
+    .reveal { opacity: 0; transform: translateY(40px); transition: 1s ease; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      margin: 6px auto;
+      background: #fff;
+      transition: all 0.3s ease-in-out;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    .btn-glow {
+      animation: pulseGlow 2s infinite;
+      box-shadow: 0 0 20px rgba(0,162,255,0.6);
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 20px rgba(0,162,255,0.6); }
+      50% { box-shadow: 0 0 40px rgba(0,162,255,1); }
+    }
+
+    #mobile-menu {
+      opacity: 0;
+      transform: translateX(100%);
+      transition: all 0.3s ease-in-out;
+      pointer-events: none;
+    }
+
+    #mobile-menu.menu-open {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: auto;
+    }
