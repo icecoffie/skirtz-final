@@ -1,4 +1,4 @@
- // Spotlight follow cursor
+  // Spotlight follow cursor
     document.addEventListener("mousemove", (e) => {
       document.querySelector(".spotlight").style.setProperty("--x", e.clientX + "px");
       document.querySelector(".spotlight").style.setProperty("--y", e.clientY + "px");
@@ -20,6 +20,47 @@ menuBtn.addEventListener("click", (e) => {
   });
 });
 
+// ================== Parallax Scroll ==================
+window.addEventListener("scroll", () => {
+  document.querySelectorAll(".parallax").forEach(el => {
+    let speed = el.getAttribute("data-speed") || 0.3;
+    el.style.transform = `translateY(${window.scrollY * speed}px)`;
+  });
+});
+
+// ================== Auto Typing Effect ==================
+const typingTarget = document.querySelector(".typing-text");
+if (typingTarget) {
+  const text = typingTarget.dataset.text || "Build. Connect. Earn with Sk*rtz.";
+  let i = 0;
+  setInterval(() => {
+    typingTarget.textContent = text.slice(0, i++);
+    if (i > text.length) i = 0;
+  }, 120);
+}
+
+// ================== Card Hover Tilt ==================
+document.querySelectorAll(".glass").forEach(card => {
+  card.addEventListener("mousemove", (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width/2;
+    const y = e.clientY - rect.top - rect.height/2;
+    card.style.transform = `rotateY(${x/25}deg) rotateX(${-y/25}deg) scale(1.02)`;
+  });
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = "rotateY(0) rotateX(0) scale(1)";
+  });
+});
+
+// ================== Random Glow Hero Nodes ==================
+setInterval(() => {
+  const nodes = document.querySelectorAll(".node");
+  if (!nodes.length) return;
+  const randomNode = nodes[Math.floor(Math.random() * nodes.length)];
+  randomNode.style.boxShadow = "0 0 20px rgba(0,162,255,0.9)";
+  setTimeout(() => randomNode.style.boxShadow = "0 0 15px rgba(255,255,255,0.08)", 600);
+}, 800);
+
 // Klik link di dalam menu → tutup menu
 document.querySelectorAll(".menu-link").forEach(link => {
   link.addEventListener("click", function(e) {
@@ -40,7 +81,6 @@ document.addEventListener("click", (e) => {
     }
   }
 });
-
 
 
     // Smooth scroll for nav
