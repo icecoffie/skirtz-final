@@ -10,15 +10,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body class="relative overflow-x-hidden">
-
-  <!-- Spotlight -->
   <div class="spotlight"></div>
-
-    <!-- Navbar -->
   <header class="flex justify-between items-center px-8 py-6 fixed w-full top-0 bg-black/70 backdrop-blur z-40">
   <div class="flex items-center space-x-3">
 
-    <!-- Logo Canvas -->
      <div id="logo-canvas" class="w-12 h-12 cursor-pointer"></div>
     <span class="text-2xl font-bold">Skirtz</span>
   </div>
@@ -33,9 +28,6 @@
   <div id="menu-btn" class="hamburger md:hidden cursor-pointer"><span></span><span></span><span></span></div>
 </header>
 
-
-
-  <!-- Mobile Menu -->
   <div id="mobile-menu" class="fixed fixed top-0 right-0 w-2/3 h-full bg-black/90 z-40 flex flex-col items-center justify-center space-y-8 text-lg">
     <a href="#features" class="menu-link">Features</a>
     <a href="#resources" class="menu-link">Resources</a>
@@ -45,7 +37,6 @@
     <a href="#contact" class="px-5 py-2 rounded-lg bg-white text-black font-semibold hover:bg-gray-200 transition">Get Started →</a>
   </div>
 
-  <!-- Hero -->
   <section class="flex flex-col items-center text-center mt-32 px-6 relative reveal">
     <span class="px-4 py-1 glass text-sm mb-6">Join 16,000+ freelancers worldwide</span>
     <h1 class="text-5xl md:text-6xl font-bold mb-4">Build. Connect. Earn with Skirtz.</h1>
@@ -54,7 +45,7 @@
       <a href="#contact" class="menu-link px-6 py-3 rounded-lg bg-white text-black font-semibold hover:bg-gray-200 transition">Go Deeper</a>
       <a href="#features" class="menu-link px-6 py-3 rounded-lg glass hover:bg-white/10 transition">Dive in</a>
     </div>
-    <!-- Network Graph -->
+    
     <div class="relative w-full max-w-4xl h-96 flex items-center justify-center">
       <svg class="absolute inset-0 w-full h-full">
         <line x1="50%" y1="50%" x2="20%" y2="20%" class="glow-line"/>
@@ -70,7 +61,6 @@
     </div>
   </section>
 
-  <!-- Features -->
   <section id="features" class="py-32 px-6 text-center reveal relative">
     <h2 class="text-4xl font-bold mb-16">Features for Freelancers</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto relative z-10">
@@ -80,8 +70,7 @@
     </div>
     <canvas id="three-features" class="absolute inset-0 w-full h-full z-0"></canvas>
   </section>
-
-  <!-- Resources -->
+  
   <section id="resources" class="py-32 px-6 text-center reveal relative">
     <h2 class="text-4xl font-bold mb-16">Resources to Help You Grow</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto relative z-10">
@@ -92,7 +81,6 @@
     <canvas id="three-resources" class="absolute inset-0 w-full h-full z-0"></canvas>
   </section>
 
-  <!-- Product Launch -->
   <section id="product-launch" class="py-32 px-6 text-center reveal relative">
     <h2 class="text-4xl font-bold mb-10">Introducing Sk*rtz Pro</h2>
     <p class="text-gray-300 max-w-2xl mx-auto mb-12">Meet <strong>Sk*rtz Pro</strong> – your AI-powered freelancer assistant. Automate proposals, optimize your profile, and land more clients with smarter insights.</p>
@@ -111,7 +99,6 @@
     <canvas id="three-launch" class="absolute inset-0 w-full h-full z-0"></canvas>
   </section>
 
-  <!-- Case Studies -->
   <section id="case-studies" class="py-32 px-6 text-center reveal relative">
     <h2 class="text-4xl font-bold mb-16">Case Studies</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto relative z-10">
@@ -122,7 +109,6 @@
     <canvas id="three-cases" class="absolute inset-0 w-full h-full z-0"></canvas>
   </section>
 
-  <!-- Updates -->
 <section id="updates" class="py-32 px-6 text-center reveal relative">
   <h2 class="text-4xl font-bold mb-16">Our Journey</h2>
   <div class="max-w-3xl mx-auto space-y-12 text-left relative z-10">
@@ -133,7 +119,6 @@
   <canvas id="three-updates" class="absolute inset-0 w-full h-full z-0"></canvas>
 </section>
 
-<!-- Contact -->
 <section id="contact" class="py-32 px-6 text-center reveal relative">
   <h2 class="text-4xl font-bold mb-10">Get in Touch</h2>
   <p class="text-gray-300 max-w-xl mx-auto mb-16 relative z-10">
@@ -177,15 +162,13 @@
     >
       Send Message
     </button>
-
-    <!-- Feedback -->
+    
     <p id="form-status" class="text-sm mt-4"></p>
   </form>
   </form>
   <canvas id="three-contact" class="absolute inset-0 w-full h-full z-0"></canvas>
 </section>
 
-  <!-- Footer -->
   <footer class="text-center">
     <p class="text-gray-500 py-6 border-t border-white/10">© 2025 Skirtz. All rights reserved.</p>
   </footer>
