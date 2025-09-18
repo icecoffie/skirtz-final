@@ -1,4 +1,3 @@
-
     // Spotlight follow cursor
     document.addEventListener("mousemove", (e) => {
       document.querySelector(".spotlight").style.setProperty("--x", e.clientX + "px");
@@ -7,8 +6,8 @@
 
 // Typewriter effect untuk heading
 const heading = document.querySelector("h1");
-const baseText = "Build. Connect. "; 
-const words = ["Earn", "Grow", "Success"];
+const baseText = "Ready to dive in? Let’s go "; 
+const words = ["Deeper", "Learn", "Connect", "Build"];
 let wordIndex = 0, charIndex = 0, deleting = false;
 
 function typeLoop() {
@@ -36,7 +35,33 @@ function typeLoop() {
 
 typeLoop();
 
-// Hamburger toggle
+function particleBurst(e) {
+  for (let i = 0; i < 10; i++) {
+    const particle = document.createElement("span");
+    particle.className = "absolute w-2 h-2 bg-blue-400 rounded-full pointer-events-none";
+    document.body.appendChild(particle);
+
+    const x = e.clientX, y = e.clientY;
+    particle.style.left = x + "px";
+    particle.style.top = y + "px";
+
+    const angle = Math.random() * 2 * Math.PI;
+    const distance = Math.random() * 80;
+    const dx = Math.cos(angle) * distance;
+    const dy = Math.sin(angle) * distance;
+
+    particle.animate([
+      { transform: `translate(0,0) scale(1)`, opacity: 1 },
+      { transform: `translate(${dx}px, ${dy}px) scale(0)`, opacity: 0 }
+    ], { duration: 800, easing: "ease-out" }).onfinish = () => particle.remove();
+  }
+}
+document.querySelectorAll("a").forEach(btn => {
+  btn.addEventListener("mouseenter", particleBurst);
+});
+
+
+// ================== Hamburger Toggle ==================
 const menuBtn = document.getElementById("menu-btn");
 const mobileMenu = document.getElementById("mobile-menu");
 
@@ -51,6 +76,30 @@ menuBtn.addEventListener("click", (e) => {
     bar.style.backgroundColor = "#fff";
   });
 });
+
+// Klik link di dalam menu → smooth scroll + tutup menu
+document.querySelectorAll(".menu-link").forEach(link => {
+  link.addEventListener("click", function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute("href"));
+    if (target) target.scrollIntoView({ behavior: "smooth" });
+    
+    // Tutup menu setelah klik
+    mobileMenu.classList.remove("menu-open");
+    menuBtn.classList.remove("active");
+  });
+});
+
+// Klik area luar menu → tutup menu
+document.addEventListener("click", (e) => {
+  if (mobileMenu.classList.contains("menu-open")) {
+    if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+      mobileMenu.classList.remove("menu-open");
+      menuBtn.classList.remove("active");
+    }
+  }
+});
+
 
 // ================== Parallax Scroll ==================
 window.addEventListener("scroll", () => {
@@ -289,7 +338,7 @@ form.addEventListener("submit", async function(e) {
       headers: { 'Accept': 'application/json' }
     });
     if (response.ok) {
-      status.textContent = "🌱 Thanks! Your message has been sent.";
+      status.textContent = " Thanks! Your message has been sent 🌱";
       status.className = "text-blue-400 mt-4";
       form.reset();
     } else {
