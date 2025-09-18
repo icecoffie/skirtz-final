@@ -1,8 +1,40 @@
-  // Spotlight follow cursor
+
+    // Spotlight follow cursor
     document.addEventListener("mousemove", (e) => {
       document.querySelector(".spotlight").style.setProperty("--x", e.clientX + "px");
       document.querySelector(".spotlight").style.setProperty("--y", e.clientY + "px");
     });
+
+// Typewriter effect untuk heading
+const heading = document.querySelector("h1");
+const baseText = "Build. Connect. "; 
+const words = ["Earn", "Grow", "Success"];
+let wordIndex = 0, charIndex = 0, deleting = false;
+
+function typeLoop() {
+  const currentWord = words[wordIndex];
+  if (!deleting) {
+    // nambah karakter
+    charIndex++;
+    heading.innerHTML = baseText + `<span class="text-blue-400">${currentWord.substring(0, charIndex)}</span>`;
+    if (charIndex === currentWord.length) {
+      deleting = true;
+      setTimeout(typeLoop, 1500); // jeda sebelum hapus
+      return;
+    }
+  } else {
+    // hapus karakter
+    charIndex--;
+    heading.innerHTML = baseText + `<span class="text-blue-400">${currentWord.substring(0, charIndex)}</span>`;
+    if (charIndex === 0) {
+      deleting = false;
+      wordIndex = (wordIndex + 1) % words.length;
+    }
+  }
+  setTimeout(typeLoop, deleting ? 60 : 120);
+}
+
+typeLoop();
 
 // Hamburger toggle
 const menuBtn = document.getElementById("menu-btn");
