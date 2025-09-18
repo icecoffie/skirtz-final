@@ -10,7 +10,7 @@ Jadilah bagian dari komunitas freelancer global. Temukan proyek, kembangkan jari
 
 ## 🖼️ Preview  
 
-![Skirtz Mockup](./skirtzmockup.png)  
+![Skirtz Mockup](skirtzmockup.png)  
 
 ## 🎯 Tentang Sk*rtz  
 
