@@ -1,39 +1,37 @@
-    // Spotlight follow cursor
+// Spotlight follow cursor
     document.addEventListener("mousemove", (e) => {
       document.querySelector(".spotlight").style.setProperty("--x", e.clientX + "px");
       document.querySelector(".spotlight").style.setProperty("--y", e.clientY + "px");
     });
 
-// Typewriter effect untuk heading
-const heading = document.querySelector("h1");
-const baseText = "Ready to dive in? Let’s go "; 
-const words = ["Deeper", "Learn", "Connect", "Build"];
-let wordIndex = 0, charIndex = 0, deleting = false;
+    // Typewriter effect untuk heading
+    const typewriter = document.getElementById("typewriter");
+    const words = ["Deeper", "Growth", "Connect", "Build"];
+    let wordIndex = 0, charIndex = 0, deleting = false;
 
-function typeLoop() {
-  const currentWord = words[wordIndex];
-  if (!deleting) {
-    // nambah karakter
-    charIndex++;
-    heading.innerHTML = baseText + `<span class="text-blue-400">${currentWord.substring(0, charIndex)}</span>`;
-    if (charIndex === currentWord.length) {
-      deleting = true;
-      setTimeout(typeLoop, 1500); // jeda sebelum hapus
-      return;
+    function typeLoop() {
+      const currentWord = words[wordIndex];
+      if (!deleting) {
+        charIndex++;
+        typewriter.textContent = currentWord.substring(0, charIndex);
+        if (charIndex === currentWord.length) {
+          deleting = true;
+          setTimeout(typeLoop, 1500);
+          return;
+        }
+      } else {
+        charIndex--;
+        typewriter.textContent = currentWord.substring(0, charIndex);
+        if (charIndex === 0) {
+          deleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+        }
+      }
+      setTimeout(typeLoop, deleting ? 60 : 120);
     }
-  } else {
-    // hapus karakter
-    charIndex--;
-    heading.innerHTML = baseText + `<span class="text-blue-400">${currentWord.substring(0, charIndex)}</span>`;
-    if (charIndex === 0) {
-      deleting = false;
-      wordIndex = (wordIndex + 1) % words.length;
-    }
-  }
-  setTimeout(typeLoop, deleting ? 60 : 120);
-}
 
-typeLoop();
+    typeLoop();
+
 
 function particleBurst(e) {
   for (let i = 0; i < 10; i++) {
