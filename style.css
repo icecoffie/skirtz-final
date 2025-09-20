@@ -4,6 +4,24 @@
       font-family: 'Inter', sans-serif;
       scroll-behavior: smooth;
     }
+
+    h1 {
+      display: inline-block;
+      min-height: 1.5em; 
+      line-height: 1.5em; 
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        min-height: 2em; 
+      }
+    }
+      #typewriter {
+      display: inline-block;
+      min-width: 7ch;
+      white-space: nowrap; 
+    }
+
     .spotlight {
       position: fixed;
       top: 0; left: 0;
